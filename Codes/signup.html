@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - A-One Restaurant</title>
+    <link rel="stylesheet" href="signup.css"> <!-- Link to sign-up specific CSS file -->
+</head>
+<body>
+
+<div class="signup-container">
+    <button class="back-button" onclick="window.history.back();">Back</button>
+
+    <!-- Restaurant Logo -->
+    <div class="logo">
+        <img src="IMAGES/Logo.jpg" alt="A-One Restaurant Logo"> <!-- Replace with actual logo path -->
+    </div>
+
+    <h2>Sign Up</h2>
+    <form class="signup-form" onsubmit="handleSignUp(event)">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="tel" name="mobile" placeholder="Mobile Number" required>
+        <input type="email" name="email" placeholder="Email ID" required>
+        <input type="password" name="password" placeholder="Create Password" required>
+        <textarea name="address" placeholder="Address" rows="5" required></textarea>
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <!-- Link to login page -->
+    <div class="login-link">
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+</div>
+
+<footer>
+    <p>© 2024 A-One Restaurant. All rights reserved.</p>
+    <p>Contact Us: contact@aonerestaurant.com | +1 978-345-1234</p>
+</footer>
+
+<script>
+    // JavaScript function to handle the sign-up form validation
+    /* function handleSignUp(event) {
+        event.preventDefault(); // Prevent form submission
+
+        const form = event.target;
+        const name = form.name.value.trim();
+        const mobile = form.mobile.value.trim();
+        const email = form.email.value.trim();
+        const password = form.password.value.trim();
+        const address = form.address.value.trim();
+
+        // Name validation (letters and spaces only)
+        if (!/^[a-zA-Z\s]+$/.test(name)) {
+            alert("Please enter a valid name (letters and spaces only).");
+            return;
+        }
+
+        // Mobile number validation (10 digits)
+        if (!/^\d{10}$/.test(mobile)) {
+            alert("Please enter a valid 10-digit mobile number.");
+            return;
+        }
+
+        // Email validation
+        if (!/^\S+@\S+\.\S+$/.test(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        // Password validation (at least 6 characters)
+        if (password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            return;
+        }
+
+        // Address validation (non-empty)
+        if (address === "") {
+            alert("Please enter your address.");
+            return;
+        }
+
+        // If all fields are valid, show success message
+        alert("Sign Up successful!");
+        window.location.href = "login.html"; // Redirect to login page after successful sign-up
+    }*/
+   // signup.js
+
+// Handle the sign-up form submission
+function handleSignUp(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const form = event.target; // Get the form element
+    const name = form.name.value.trim(); // Get the name value
+    const mobile = form.mobile.value.trim(); // Get the mobile number value
+    const email = form.email.value.trim(); // Get the email value
+    const password = form.password.value.trim(); // Get the password value
+    const address = form.address.value.trim(); // Get the address value
+
+    // Validate form data before sending it to the backend
+    if (!/^[a-zA-Z\s]+$/.test(name)) {
+        alert("Please enter a valid name (letters and spaces only).");
+        return;
+    }
+    if (!/^\d{10}$/.test(mobile)) {
+        alert("Please enter a valid 10-digit mobile number.");
+        return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return;
+    }
+    if (address === "") {
+        alert("Please enter your address.");
+        return;
+    }
+
+    // Make a POST request to the backend to create the user
+    fetch('http://localhost:5000/api/signup', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, mobile, email, password, address }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message) {
+            alert('Sign-up successful!');
+            window.location.href = 'login.html'; // Redirect to login page after successful sign-up
+        } else {
+            alert(data.error || 'An error occurred');
+        }
+    })
+    .catch(err => {
+        alert('Server error: ' + err);
+    });
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Order Page</title>
+    <link rel="stylesheet" href="ordertest.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo"><img src="IMAGES/Logo.jpg" alt="Restaurant Logo"></div>
+        <nav>
+            <a href="Homepage_Chirag.html">Home</a>
+            <a href="gallerypage.html">Gallery</a>
+            <a href="order.html">Menu</a>
+            <a href="">Private Dining/Events</a>
+            <a href="Aboutpage.html">About</a>
+            <a href="contactus.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <div class="page-title">
+        <h1>Order Online</h1>
+    </div>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul>
+                <li class="active">Breakfast Special</li>
+                <li>Chaat, Snacks & Quick Bites</li>
+                <li>Sweets</li>
+                <li>Namkeen</li>
+                <li>Bikano Sweets (5)</li>
+                <li>Gift Packs (2)</li>
+                <li>Cakes & Pastries (11)</li>
+                <li>Confectionery (17)</li>
+                <li>Chocolates (26)</li>
+            </ul>
+        </aside>
+
+        <main class="menu-content">
+            <div class="order-header">
+                <div class="search-container">
+                    <input type="text" id="search-bar" placeholder="Search within menu">
+                </div>
+               
+                <button class="go-to-cart"><a href="cart.html">Go to Cart</a></button>
+            </div>
+
+           
+            <div class="menu-section" id="menuContainer">
+               
+            </div>
+        </main>
+    </div>
+
+    
+    <footer>
+        <p>© 2024 Restaurant. All rights reserved.</p>
+    </footer>
+
+    <script>
+        fetch('menuData.json')
+  .then(response => response.json())
+  .then(data => {
+    
+    const menuData = data.menu;
+
+    
+    function displayItemsByCategory(category) {
+      const menuContainer = document.getElementById('menuContainer');
+      menuContainer.innerHTML = '';
+
+      const selectedCategory = menuData.find(cat => cat.category === category);
+
+      if (selectedCategory) {
+        const categoryTitle = document.createElement('h2');
+        categoryTitle.textContent = selectedCategory.category;
+        menuContainer.appendChild(categoryTitle);
+
+        selectedCategory.items.forEach(item => {
+          const menuItem = document.createElement('div');
+          menuItem.classList.add('menu-item');
+
+          menuItem.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div class="menu-item-details">
+              <h3>${item.name}</h3>
+              <p class="rating">${item.rating} (${item.votes} votes)</p>
+              <p class="price">₹${item.price}</p>
+              <p class="description">${item.description}</p>
+              <div class="item-quantity">
+                <button onclick="updateCartItem('${item.name}', ${item.price}, -1, '${item.image}')">-</button>
+                <span id="${item.name}-qty">0</span>
+                <button onclick="updateCartItem('${item.name}', ${item.price}, 1, '${item.image}')">+</button>
+              </div>
+            </div>
+          `;
+          menuContainer.appendChild(menuItem);
+        });
+      }
+    }
+
+    displayItemsByCategory('Breakfast Special');
+
+    document.querySelectorAll('.sidebar li').forEach(li => {
+      li.addEventListener('click', () => {
+        document.querySelectorAll('.sidebar li').forEach(el => el.classList.remove('active'));
+        li.classList.add('active');
+        displayItemsByCategory(li.textContent.trim());
+      });
+    });
+
+    document.getElementById('search-bar').addEventListener('input', function() {
+      const query = this.value.toLowerCase();
+      const menuContainer = document.getElementById('menuContainer');
+      menuContainer.innerHTML = ''; 
+
+      menuData.forEach(category => {
+        category.items
+          .filter(item => item.name.toLowerCase().includes(query))
+          .forEach(item => {
+            const menuItem = document.createElement('div');
+            menuItem.classList.add('menu-item');
+            menuItem.innerHTML = `
+              <img src="${item.image}" alt="${item.name}">
+              <div class="menu-item-details">
+                <h3>${item.name}</h3>
+                <p class="rating">${item.rating} (${item.votes} votes)</p>
+                <p class="price">₹${item.price}</p>
+                <p class="description">${item.description}</p>
+                <div class="item-quantity">
+                  <button onclick="updateCartItem('${item.name}', ${item.price}, -1, '${item.image}')">-</button>
+                  <span id="${item.name}-qty">0</span>
+                  <button onclick="updateCartItem('${item.name}', ${item.price}, 1, '${item.image}')">+</button>
+                </div>
+              </div>
+            `;
+            menuContainer.appendChild(menuItem);
+          });
+      });
+    });
+  })
+  .catch(error => {
+    console.error("Error loading menu data:", error);
+  });
+
+
+function updateCartItem(itemName, price, change, image) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || {};
+  
+  if (!cart[itemName]) {
+    cart[itemName] = { name: itemName, price: price, quantity: 0, image: image };
+  }
+  
+  cart[itemName].quantity += change;
+
+  if (cart[itemName].quantity <= 0) {
+    delete cart[itemName];
+  }
+
+  
+  document.getElementById(`${itemName}-qty`).textContent = cart[itemName]?.quantity || 0;
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+
+    </script>
+</body>
+</html>

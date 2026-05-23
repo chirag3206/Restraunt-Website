@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-One Restaurant | Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <img src="IMAGES/Logo.jpg" alt="A-One Restaurant Logo">
+        </div>
+        <nav>
+            <a href="homeafterlogin.html">Home</a>
+            <a href="gallerypage.html">Gallery</a>
+            <a href="order.html">Order</a>
+            <a href="#menu">Menu</a>
+            <a href="#events">Private Dining/Events</a>
+            <a href="aboutpage.html">About</a>
+            <a href="contactus.html" class="contact-button">Contact Us</a>
+        </nav>
+    </div>
+</header>
+
+<div class="cart-container">
+    <h2>Your Cart</h2>
+
+    <div class="cart-items">
+        <!-- Cart items will be dynamically generated here -->
+    </div>
+
+    <div class="summary">
+        <p>Subtotal: <span>₹0.00</span></p>
+        <p>Tax (18%): <span>₹0.00</span></p>
+        <h3>Total: <span>₹0.00</span></h3>
+    </div>
+
+    <!-- Address Input Section -->
+    <div class="address-section">
+        <h3>Delivery Address</h3>
+        <input type="text" id="name" placeholder="Enter your name" required>
+        <input type="text" id="contact-number" placeholder="Enter your contact number" required>
+        <textarea id="address" rows="3" placeholder="Enter your address here..." required></textarea>
+    </div>
+
+    <!-- Place Order Button -->
+    <button class="place-order-button" onclick="showPaymentOptions()">Place Order</button>
+
+    <!-- Payment Options Section (Initially Hidden) -->
+    <div class="payment-options" id="payment-options" style="display: none;">
+        <h3>Payment Options</h3>
+        <button onclick="placeOrder('Credit/Debit Card')">Credit/Debit Card</button>
+        <button onclick="placeOrder('UPI')">UPI</button>
+        <button onclick="placeOrder('Cash on Delivery')">Cash on Delivery</button>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 A-One Restaurant. All rights reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || {};
+
+// Helper function to format currency (₹)
+function formatCurrency(amount) {
+    return `₹${amount.toFixed(2)}`;
+}
+
+// Function to display cart items on the cart page
+function displayCartItems() {
+    const cartItemsContainer = document.querySelector('.cart-items');
+    cartItemsContainer.innerHTML = ''; // Clear previous items
+
+    // Check if cart is empty
+    if (Object.keys(cart).length === 0) {
+        cartItemsContainer.innerHTML = '<p>Your cart is empty.</p>';
+        return;
+    }
+
+    // Iterate through cart items and display them
+    let subtotal = 0;
+    for (let itemName in cart) {
+        const item = cart[itemName];
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+
+        cartItem.innerHTML = `
+            <div>
+                <img src="${item.image}" alt="${item.name}" width="50" height="50">
+            </div>
+            <div>${item.name}</div>
+            <div>₹${item.price}</div>
+            <div>
+                <button onclick="updateCartItem('${itemName}', -1)">-</button>
+                <span>${item.quantity}</span>
+                <button onclick="updateCartItem('${itemName}', 1)">+</button>
+            </div>
+            <div>₹${item.price * item.quantity}</div>
+        `;
+        
+        cartItemsContainer.appendChild(cartItem);
+        subtotal += item.price * item.quantity;
+    }
+
+    // Update subtotal and total
+    const tax = subtotal * 0.18; // 18% tax
+    const total = subtotal + tax;
+
+    document.querySelector('.summary p span').textContent = formatCurrency(subtotal);
+    document.querySelector('.summary p:nth-of-type(2) span').textContent = formatCurrency(tax);
+    document.querySelector('.summary h3 span').textContent = formatCurrency(total);
+}
+
+function updateCartItem(itemName, change) {
+    if (!cart[itemName]) {
+        return;
+    }
+
+    cart[itemName].quantity += change;
+
+    if (cart[itemName].quantity <= 0) {
+        delete cart[itemName]; // Remove item if quantity is 0
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart)); // Save updated cart to localStorage
+    displayCartItems(); // Re-render cart items
+}
+
+// Function to show payment options
+function showPaymentOptions() {
+    const name = document.getElementById('name').value;
+    const contact = document.getElementById('contact-number').value;
+    const address = document.getElementById('address').value;
+
+    if (!name || !contact || !address) {
+        alert('Please fill in your name, contact number, and address!');
+        return;
+    }
+
+    document.getElementById('payment-options').style.display = 'block';
+}
+
+// Function to handle the order placement with selected payment method
+function placeOrder(paymentMethod) {
+    const name = document.getElementById('name').value;
+    const contact = document.getElementById('contact-number').value;
+    const address = document.getElementById('address').value;
+
+    alert(`Order placed successfully!\nName: ${name}\nContact: ${contact}\nAddress: ${address}\nPayment Method: ${paymentMethod}`);
+
+    localStorage.removeItem('cart');
+    cart = {}; // Reset cart object
+    displayCartItems(); // Re-render cart (now empty)
+    document.getElementById('payment-options').style.display = 'none';
+}
+
+// Initial load: Display cart items
+displayCartItems();
+
+    // Redirect to the confirmation page
+   // window.location.href = 'order-confirmation.html';
+
+
+
+</script>
+</body>
+</html>

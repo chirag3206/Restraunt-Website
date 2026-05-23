@@ -1,0 +1,205 @@
+{
+    "menu": [
+      {
+        "category": "Breakfast Special",
+        "items": [
+          {
+            "name": "Choley Bhature",
+            "price": 200,
+            "rating": "★★★★★",
+            "votes": 90,
+            "description": "A spicy, tangy combination of chickpeas and deep-fried bread.",
+            "image": "IMAGES/CholeBhature.jpg"
+          },
+          {
+            "name": "Puri Sabji With Halwa",
+            "price": 155,
+            "rating": "★★★★★",
+            "votes": 80,
+            "description": "Fluffy puris served with savory potato sabji and sweet halwa.",
+            "image": "IMAGES/aloo-puri.jpg"
+          },
+          {
+            "name": "Masala Dosa",
+            "price": 130,
+            "rating": "★★★★★",
+            "votes": 110,
+            "description": "South Indian rice crepe filled with spicy mashed potatoes.",
+            "image": "IMAGES/dosa.jpg"
+          },
+          {
+            "name": "Poha",
+            "price": 70,
+            "rating": "★★★★",
+            "votes": 95,
+            "description": "Flattened rice with mustard seeds, curry leaves, and peanuts.",
+            "image": "IMAGES/poha.jpeg.jpg"
+          },
+          {
+            "name": "Idli Sambar",
+            "price": 100,
+            "rating": "★★★★★",
+            "votes": 120,
+            "description": "Steamed rice cakes served with a flavorful lentil stew.",
+            "image": "Images/Idli.jpg"
+          }
+        ]
+      },
+      {
+        "category": "Chaat, Snacks & Quick Bites",
+        "items": [
+          {
+            "name": "Samosa",
+            "price": 50,
+            "rating": "★★★★★",
+            "votes": 120,
+            "description": "Crispy and savory, filled with spiced potatoes and peas.",
+            "image": "IMAGES/samosa.jpeg.jpg"
+          },
+          {
+            "name": "Khasta Kachori",
+            "price": 60,
+            "rating": "★★★★",
+            "votes": 100,
+            "description": "Flaky and flavorful, with a spiced lentil filling.",
+            "image": "IMAGES/kachori.jpg"
+        },
+        {
+            "name": "Pani Puri",
+            "price": 40,
+            "rating": "★★★★★",
+            "votes": 150,
+            "description": "Crispy shells filled with tangy tamarind water and chickpeas.",
+            "image": "IMAGES/pani-puri.jpg"
+        },
+        {
+            "name": "Aloo Tikki",
+            "price": 45,
+            "rating": "★★★★",
+            "votes": 90,
+            "description": "Spicy potato patties served with chutney.",
+            "image": "IMAGES/aloo-tikki.jpg"
+        },
+        {
+            "name": "Bhel Puri",
+            "price": 35,
+            "rating": "★★★★",
+            "votes": 85,
+            "description": "Puffed rice mixed with spices and chutneys.",
+            "image": "IMAGES/bhelpuri.jpg"
+        }
+    ]
+},
+{
+    "category": "Sweets",
+    "items": [
+        {
+            "name": "Gulab Jamun",
+            "price": 80,
+            "rating": "★★★★★",
+            "votes": 200,
+            "description": "Soft and syrupy, a favorite Indian sweet.",
+            "image": "IMAGES/gulab-jamun.jpg"
+        },
+        {
+            "name": "Jalebi",
+            "price": 60,
+            "rating": "★★★★★",
+            "votes": 180,
+            "description": "Crispy fried sweets soaked in sugar syrup.",
+            "image": "IMAGES/jalebi.jpg"
+        },
+        {
+            "name": "Kaju Katli",
+            "price": 250,
+            "rating": "★★★★★",
+            "votes": 160,
+            "description": "Cashew fudge cut into diamond shapes.",
+            "image": "IMAGES/kajukatli.jpg"
+        },
+        {
+            "name": "Rasgulla",
+            "price": 90,
+            "rating": "★★★★",
+            "votes": 140,
+            "description": "Soft cheese balls in sweet syrup.",
+            "image": "IMAGES/rasgulla.jpg"
+        },
+        {
+            "name": "Ladoo",
+            "price": 50,
+            "rating": "★★★★",
+            "votes": 130,
+            "description": "Sweet round balls made from gram flour and ghee.",
+            "image": "IMAGES/ladoo.jpeg.jpg"
+        }
+    ]
+},
+{
+    "category": "Namkeen",
+    "items": [
+        {
+            "name": "Aloo Bhujia",
+            "price": 40,
+            "rating": "★★★★",
+            "votes": 95,
+            "description": "Crispy potato-based snack with spices.",
+            "image": "IMAGES/aaloo bhujia.jpeg.jpg"
+        },
+        {
+            "name": "Moong Dal",
+            "price": 35,
+            "rating": "★★★★",
+            "votes": 90,
+            "description": "Crunchy lentil snack, lightly spiced.",
+            "image": "IMAGES/moongdal.jpg"
+        }
+    ]
+},
+{
+    "category": "Cakes & Pastries (11)",
+    "items": [
+        {
+            "name": "Choclate Truffle Cake(1 Pound)",
+            "price": 500,
+            "rating": "★★★★",
+            "votes": 60,
+            "description": "  ",
+            "image": "IMAGES/truffle.jpg"
+        },
+        {
+            "name": "Black Forest Cake",
+            "price":  300,
+            "rating": "★★★★",
+            "votes": 50,
+            "description": "",
+            "image": "IMAGES/black-forest-cake.jpg"
+        },
+        {
+            "name": "Lotus Biscoff Cake",
+            "price": 1000,
+            "rating": "★★★★",
+            "votes": 65,
+            "description": "",
+            "image": "IMAGES/biscoff-lotus-cake.jpg"
+        },
+        {
+            "name": "Blueberry Cake",
+            "price": 600,
+            "rating": "★★★★★",
+            "votes": 55,
+            "description": "Fried pastry filled with chocolate and nuts.",
+            "image": "IMAGES/Blueberry-Cake-recipe.jpg"
+        },
+        {
+            "name": "Brownie",
+            "price": 80,
+            "rating": "★★★★",
+            "votes": 40,
+            "description": "Bengali sweet with a chocolate twist.",
+            "image": "IMAGES/brownie.jpg"
+        }
+    ]
+}
+    ]
+}

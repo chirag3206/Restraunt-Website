@@ -1,0 +1,50 @@
+{
+    "hero": {
+        "image": "IMAGES/hero.jpg",
+        "title": "WELCOME"
+    },
+    "sections": [
+        {
+            "id": "about",
+            "title": "About Us",
+            "content": "A-One Restaurant is an ultra-luxurious restaurant located in the heart of a glamorous city...",
+            "link": "Aboutpage.html",
+            "linkText": "Learn More"
+        },
+        {
+            "id": "events",
+            "title": "Host A Party",
+            "image": "IMAGES/Host a part(home).jpg",
+            "content": "We recommend celebrating all moments, big or small...",
+            "link": "#book",
+            "linkText": "Book Now"
+        },
+        {
+            "id": "menu",
+            "title": "Order Online",
+            "image": "IMAGES/Menu Home.jpg",
+            "content": "Come see the items featured from our scratch-made kitchen.",
+            "link": "order.html",
+            "linkText": "Order Now"
+        },
+        {
+            "id": "dinner",
+            "title": "Join Us For Dinner",
+            "image": "IMAGES/Dinner(Home).jpg",
+            "content": "Experience an unforgettable dinner with a breathtaking view of the cityscape.",
+            "link": "#book",
+            "linkText": "Book"
+        }
+    ],
+    "contactInfo": {
+        "address": "2018 Lightning Ave, Touch Beach, Oceanside, MA 09820",
+        "phone": "+1 978-345-1234",
+        "email": "contact@aonerestaurant.com"
+    },
+    "hours": {
+        "monday": "6PM to 11PM",
+        "wednesdayFriday": "6PM to 11PM",
+        "saturdaySunday": "10AM to 11PM",
+        "tuesday": "Closed"
+    }
+}

@@ -1,0 +1,193 @@
+/* Reset some default browser styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #FFFFFF;
+    background-color: #3F003B; /* Dark purple background */
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    background-color: #3F003B
+}
+
+header .logo img {
+    height: 70px;
+}
+
+header nav a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.1rem;
+}
+
+header nav a.button {
+    background-color: #E8E8E8;
+    color: #3F003B;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+.hero {
+    position: relative;
+    text-align: center;
+}
+
+.hero img {
+    width: 80%;
+    height: auto;
+}
+
+.hero-title {
+    position: absolute;
+    top: 40%; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 79px;
+    font-weight: bold;
+    z-index: 10; /* Ensures it appears above the image */
+    text-align: center;
+}
+
+
+/* Content Sections */
+.content {
+    padding: 50px 10%;
+}
+
+.section {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.section p {
+    font-size: 1.2rem;
+    color: #E8E8E8;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.section .button {
+    display: inline-block;
+    padding: 10px 20px;
+    color:#3F003B;
+    background-color: #E8E8E8;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    background-color: #2B0733;
+    padding: 50px 10%;
+    display: flex;
+    justify-content: space-between;
+    color: #E8E8E8;
+    flex-wrap: wrap; /* Ensures wrapping on small screens */
+}
+
+footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+footer p,
+footer a {
+    font-size: 1rem;
+    color: #E8E8E8;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+footer .contact-form,
+footer .contact-info,
+footer .quick-links,
+footer .hours {
+    flex: 1; /* Allows sections to take equal width */
+    min-width: 200px; /* Minimum width for each section */
+    max-width: 250px; /* Max width to control their size */
+    margin: 0 10px; /* Adds spacing between columns */
+}
+
+/* Contact Form Styles */
+footer .contact-form input,
+footer .contact-form textarea,
+footer .contact-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+footer .contact-form button {
+    background-color: #E8E8E8;
+    color: #3E0A4A;
+    font-weight: bold;
+}
+
+/* Responsive Design for Footer */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .contact-form,
+    footer .contact-info,
+    footer .quick-links,
+    footer .hours {
+        max-width: 100%; /* Make each section full-width */
+        margin-bottom: 20px;
+    }
+}
+
+.welcome-message {
+    text-align: center;
+    padding: 50px;
+    background-color: #3F003B;
+    color: #FFFFFF;
+}
+
+.welcome-message h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #E8E8E8;
+}
+
+.welcome-message p {
+    font-size: 1.2rem;
+    color: #FFFFFF;
+}

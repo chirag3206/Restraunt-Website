@@ -1,0 +1,108 @@
+<!-- gallery.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - A-One Restaurant</title>
+    <link rel="stylesheet" href="gallerypage.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="IMAGES/Logo.jpg" alt="A-One Restaurant Logo"> <!-- Replace with actual logo path -->
+        </div>
+        <nav>
+            <a href="Homepage_Chirag.html">Home</a>
+            <a href="gallerypage.html">Gallery</a>
+            <a href="order.html">Order Online</a>
+            <a href="#">Private Dining/Events</a>
+            <a href="Aboutpage.html">About</a>
+            <a href="contact.html" class="contact-button">CONTACT US</a>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>GALLERY</h1>
+        
+        <section class="gallery-section">
+            <button onclick="location.href='restrauntbuyout(Gallery).html'">RESTAURANT</button>
+            <div class="gallery-grid">
+                <!-- Add images here for Restaurant section -->
+                <img src="IMAGES/restraunt1.jpg" alt="Restaurant Image 1">
+                <img src="IMAGES/restraunt2.jpg" alt="Restaurant Image 2">
+                <img src="IMAGES/restraunt3.jpg" alt="Restaurant Image 3">
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <button onclick="location.href='privatediningpage(Gallery).html'">DINING ROOM</button>
+            <div class="gallery-grid">
+                <!-- Add images here for Dining Room section -->
+                <img src="IMAGES/dining1.jpg" alt="Dining Room Image 1">
+                <img src="IMAGES/dining2.jpg" alt="Dining Room Image 2">
+                <img src="IMAGES/dining3.jpg" alt="Dining Room Image 3">
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <a href="nightparty(gallery).html"><button>NIGHT CLUB PARTY</button></a>
+            <div class="gallery-grid">
+                <img src="IMAGES/club1.jpg" alt="Night Club Image 1">
+                <img src="IMAGES/club2.jpg" alt="Night Club Image 2">
+                <img src="IMAGES/club3.jpg" alt="Night Club Image 3">
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <a href="banquethall(Gallery).html"><button>BANQUET HALL</button></a>
+            <div class="gallery-grid">
+                <img src="IMAGES/banq1.jpg" alt="Banquet Hall Image 1">
+                <img src="IMAGES/banq2.jpg" alt="Banquet Hall Image 2">
+                <img src="IMAGES/banq3.jpg" alt="Banquet Hall Image 3">
+            </div>
+        </section>
+    </main>
+
+  <!-- Footer -->
+<footer>
+    <!-- Contact Form -->
+    <div class="contact-form">
+        <h3>Have a Message?</h3>
+        <form>
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="number" placeholder="Number" required>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Inquiries</button>
+        </form>
+    </div>
+    <!-- Contact Info -->
+    <div class="contact-info">
+        <h3>Contact Us</h3>
+        <p>2018 Lightning Ave, Touch Beach, Oceanside, MA 09820</p>
+        <p>Call us at:</p>
+        <p>Phone: +1 978-345-1234</p>
+        <p>Email: contact@aonerestaurant.com</p>
+    </div>
+    <!-- Quick Links -->
+    <div class="quick-links">
+        <h3>Quick Links</h3>
+        <p><a href="order.html">Order Online</a></p>
+        <p><a href="#events">Private Dining</a></p>
+        <p><a href="gallerypage.html">Gallery</a></p>
+        <p><a href="Aboutpage.html">About US</a></p>
+    </div>
+    <!-- Hours of Operation -->
+    <div class="hours">
+        <h3>Hours of Operation</h3>
+        <p>Monday, Wednesday-Friday: 6PM to 11PM</p>
+        <p>Saturday-Sunday: 10AM to 11PM</p>
+        <p>Tuesday: Closed</p>
+    </div>
+</footer>
+<script src="gallerypage.js"></script>
+
+
+</body>
+</html>

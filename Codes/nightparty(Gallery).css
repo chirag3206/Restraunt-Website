@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #3F003B;
+    color: #FFFFFF;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #3F003B;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.contact-button {
+    background-color: #C8C8C8;
+    color: #3F003B;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.image-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.image-gallery img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+footer {
+    background-color: #2B0733;
+    padding: 50px 10%;
+    display: flex;
+    justify-content: space-between;
+    color: #E8E8E8;
+    flex-wrap: wrap; /* Ensures wrapping on small screens */
+}
+
+footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+footer p,
+footer a {
+    font-size: 1rem;
+    color: #E8E8E8;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+footer .contact-form,
+footer .contact-info,
+footer .quick-links,
+footer .hours {
+    flex: 1; /* Allows sections to take equal width */
+    min-width: 200px; /* Minimum width for each section */
+    max-width: 250px; /* Max width to control their size */
+    margin: 0 10px; /* Adds spacing between columns */
+}
+
+/* Contact Form Styles */
+footer .contact-form input,
+footer .contact-form textarea,
+footer .contact-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+footer .contact-form button {
+    background-color: #E8E8E8;
+    color: #3E0A4A;
+    font-weight: bold;
+}
+
+/* Responsive Design for Footer */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .contact-form,
+    footer .contact-info,
+    footer .quick-links,
+    footer .hours {
+        max-width: 100%; /* Make each section full-width */
+        margin-bottom: 20px;
+    }
+}
